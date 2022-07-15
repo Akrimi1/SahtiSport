@@ -1,0 +1,43 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Livraison{% endblock %}
+
+{% block body %}
+
+<div class="row pt-5">
+<div class="col-md-3"></div>
+<div class="col-md-7">
+<div class="card">
+        <div class="card-body">
+        <div class="form-group">
+    <h1>Livraison</h1>
+
+    <table class="table">
+        <tbody>
+             <tr>
+                <th>Commande n°=</th>
+                <td>{{ livraison.commande.numCmd }}</td>
+            </tr>
+            <tr>
+                <th>Etat de la livraison</th>
+                <td><span class="badge bg-label-info me-2 m-4 p-3">{{ livraison.etatlivraison ? 'Livrée' : 'Non livrée' }}</span></td>
+            </tr>
+            
+        </tbody>
+    </table>
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-7 pt-3">
+    <a href="{{ path('app_livraison_index') }}" class="btn btn-success">revenir à la liste</a>
+
+    <a href="{{ path('app_livraison_edit', {'id': livraison.id}) }}" class="btn btn-info">Modifier</a>
+
+    
+
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

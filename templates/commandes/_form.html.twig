@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="card p-3">
+{{ form_start(form) }}
+<label>Montant total </label>
+<div class="form-group">
+    {{ form_widget(form.montantCmd, {'class': 'form-control', 'readonly':true})}}
+    </div>
+    <label>Etat Commande</label>
+ 
+    <div class="form-group pt-2">
+       <p style="font-size:11px"><u>Cocher pour valider</u></p><br/>
+    {{ form_widget(form.etat, {'class': 'form-control'})}}
+    </div>
+    <div class="form-group pt-3">
+    <button class="btn btn-success  ">Valider commande</button>
+    </div>
+{{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <!-- Logo -->
+            <div class="app-brand justify-content-center">
+                <a href="/" class="app-brand-link gap-2">
+                    <img src="{{ asset('images/SAHTI without bg.png') }} " height="150px" width="100%" />
+                </a>
+            </div>
+            <!-- /Logo -->
+            <div class="text-center">
+                 <img src="{{ asset('images/nutritionist.png') }} "  height="90px" width="30%" />
+                 <h4 class="mb-2">Adventure starts here 🚀</h4>
+                 <p class="mb-4">Start your journey as one of our nutritionists</p>
+            </div>
+            {{ form_start(formN, {'attr': {'novalidate':'novalidate'}}) }}
+
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class='bx bxs-user'></i></span>
+                {{ form_widget(formN.nom, { 'attr': {'class': 'form-control'} })}}
+                </div>
+                {{ form_errors(formN.nom) }}
+
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class='bx bxs-user'></i></span>
+                {{ form_widget(formN.prenom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                {{ form_errors(formN.prenom) }}
+
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                {{ form_widget(formN.email, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                {{ form_errors(formN.email) }}
+
+            </div>
+            <div class="mb-3 form-password-toggle">
+                <div class="input-group input-group-merge">
+                        <span class="input-group-text"><i class='bx bxs-key'></i></span>
+                    {{ form_widget(formN.passwd, { 'attr': {'class': 'form-control'} }) }}
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+                {{ form_errors(formN.passwd) }}
+
+            </div>
+            <div class="mb-3 form-password-toggle">
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class='bx bxs-key'></i></span>
+                    {{ form_widget(formN.confirmpwd, { 'attr': {'class': 'form-control'} }) }}
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+                {% for flashMessage in app.session.flashbag.get('alert') %}
+                    <div class="alert alert-danger">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class='bx bxs-home'></i></span>
+                {{ form_widget(formN.adresse , { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                {{ form_errors(formN.adresse) }}
+
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-message2" class="input-group-text"><i class="bx bx-comment"></i></span>
+                    {{ form_widget(formN.bio , { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                {{ form_errors(formN.bio) }}
+            </div>
+            <div class="mb-3">
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-message2" class="input-group-text">
+                        <i class='bx bxs-certification' ></i>
+                    </span>
+                {{ form_widget(formN.certification , { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                {{ form_errors(formN.certification) }}
+
+            </div>
+            <div class="mb-3">
+                {#                class="form-control"#}
+                <i class='bx bxs-image-add' ></i><label class="form-label" >Profile Picture</label>
+                {{ form_widget(formN.imgFile , { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(formN.imgFile) }}
+                {% for flashMessage in app.session.flashbag.get('alert2') %}
+                    <div class="alert alert-danger">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {#                class="form-control"#}
+                <i class='bx bx-captions'></i> <label class="form-label" >Captcha Code</label>
+                {{ form_widget(formN.captchaCode ) }}
+                {{ form_errors(formN.captchaCode) }}
+            </div>
+            {{ form_widget(formN.Registre, { 'attr': {'class': 'btn btn-primary d-grid w-100'}}) }}
+            {{ form_widget(formN.Cancel, { 'attr': {'class': 'btn btn-danger d-grid w-100'}}) }}
+            {{ form_end(formN) }}
+
+
+            <p class="text-center">
+                <span>Already have an account?</span>
+                <a href="/login">
+                    <span>Sign in instead</span>
+                </a><br>
+                <a href="/signupin">
+                    <span>Create an another type of account</span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SignupinController!{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <!-- Logo -->
+            <div class="app-brand justify-content-center">
+                <a href="/" class="app-brand-link gap-2">
+                    <img src="{{ asset('images/SAHTI without bg.png') }} " height="150px" width="100%"  />
+                </a>
+            </div>
+            <!-- /Logo -->
+            <div class="text-center">
+
+            <h4 class="mb-2">Adventure starts here 🚀</h4>
+            <p class="mb-4">Let’s Be FunFit !</p>
+            </div>
+            <div class="row " style="margin-bottom: 6px">
+
+                <a href="/registreclient" class="btn btn-secondary btn-rounded">
+                    <img src="{{ asset('images/iconuser.png') }}  " height="30px" width="10%"  />
+
+                    Sign up as Client
+                </a>
+            </div>
+            <div class="row " style="margin-bottom: 6px">
+
+            <a href="/registrecoach" class="btn btn-info btn-rounded">
+                <img src="{{ asset('images/iconcoach.png') }}  " height="30px" width="10%"  />
+
+                Sign up as Coach
+                </a>
+            </div>
+            <div class="row " style="margin-bottom: 6px">
+
+            <a href="/registrenutri" class="btn btn-primary btn-rounded">
+                <img src="{{ asset('images/iconnutri.png') }}  " height="30px" width="10%"  />
+                Sign up as Nutritionist
+                </a>
+            </div>
+        </div>
+        <p class="text-center">
+            <span>Already have an account?</span>
+            <a href="/login">
+                <span>Sign in instead</span>
+            </a>
+
+        </p>
+    </div>
+
+{% endblock %}
